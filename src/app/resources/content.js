@@ -1,62 +1,59 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Ethan",
+  lastName: "Nicolas",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "IT Engineer Student",
   avatar: "/images/avatar.jpg",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  location: "Europe/Paris",
+  languages: ["French", "English"],
 };
 
 const newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Subscribe to my newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      I occasionally write about the latest tech news, from gaming to cybersecurity, as well as my personal projects.
+      Sign up to receive my articles directly in your inbox.
     </>
   ),
 };
 
 const social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/ethancls",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/ethannicolas",
   },
   {
-    name: "X",
-    icon: "x",
-    link: "",
+    name: "Orcid",
+    icon: "orcid",
+    link: "https://orcid.org/0009-0006-8555-4396",
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:contact@ethancls.com",
   },
 ];
 
 const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  description: `Portfolio website showcasing my work as an ${person.role}`,
+  headline: <>IT Engineer Student</>,
   subline: (
     <>
-      I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm {person.firstName}, an IT engineer student at <InlineCode>Sup Galilée</InlineCode>, where I learn about software engineering, web development, and more. <br /> I'm passionate about creating and developing new projects, from web applications to video games.
     </>
   ),
 };
@@ -74,21 +71,22 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/ethancls",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I'm Ethan, an IT engineer student with a passion for solving complex challenging problems and
+        turning them into simple, elegant design solutions. I am currently studying at Sup Galilée
+        in Paris, France. I love projects that need both design and technical skills, and I am
+        always eager to learn new things.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Work Experience",
     experiences: [
       {
@@ -97,11 +95,11 @@ const about = {
         role: "Senior Design Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
+            I redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
             engagement and 30% faster load times.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
+            I spearheaded the integration of AI tools into design workflows, enabling designers to
             iterate 50% faster.
           </>,
         ],
@@ -121,11 +119,11 @@ const about = {
         role: "Lead Designer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
+            I developed a design system that unified the brand across multiple platforms, improving
             design consistency by 40%.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
+            I led a cross-functional team to launch a new product line, contributing to a 15% increase
             in overall company revenue.
           </>,
         ],
@@ -134,21 +132,21 @@ const about = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Studies",
     institutions: [
       {
         name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        description: <>I studied software engineering.</>,
       },
       {
         name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        description: <>I studied online marketing and personal branding.</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Technical skills",
     skills: [
       {

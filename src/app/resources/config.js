@@ -14,7 +14,7 @@ const protectedRoutes = {
   "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
 };
 
-const style = {
+/* const style = {
   theme: "dark", // dark | light
   neutral: "gray", // sand | gray | slate
   brand: "emerald", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
@@ -24,7 +24,19 @@ const style = {
   border: "playful", // rounded | playful | conservative
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
-};
+}; */
+
+const style = {
+  theme: "dark",
+  brand: "cyan",
+  accent: "cyan",
+  neutral: "slate",
+  border: "rounded",
+  solid: "color",
+  solidStyle: "flat",
+  surface: "translucent",
+  transition: "all",
+}
 
 const effects = {
   mask: {
@@ -67,8 +79,9 @@ const display = {
   time: true,
 };
 
+
 const mailchimp = {
-  action: "https://url/subscribe/post?parameters",
+  action: "https://ethancls.us12.list-manage.com/subscribe/post?u=5293a1a86f83f1850ca8cf521&id=eb0170d9c3",
   effects: {
     mask: {
       cursor: false,
