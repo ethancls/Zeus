@@ -1,0 +1,12 @@
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "2235:3000"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token eyJhIjoiNmVjZDFiZDUzNjJmZTYxZTRjODcyMjFjYWRlYjY1M2YiLCJ0IjoiYTg5NTliZTItNDA4My00YzgyLTkyZDktMzRlNjc1ZjA2MmNlIiwicyI6Ik1qazBZbVU0WldFdE0yTmpaaTAwWXpJMUxXSm1ORGt0WldZNU5HTTBOelV6WTJWayJ9
