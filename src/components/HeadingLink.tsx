@@ -21,13 +21,13 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
       () => {
         addToast({
           variant: "success",
-          message: "Link copied to clipboard.",
+          message: "Lien copié dans le presse-papiers.",
         });
       },
       () => {
         addToast({
           variant: "danger",
-          message: "Failed to copy link.",
+          message: "Échec de la copie du lien.",
         });
       },
     );
@@ -61,7 +61,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
         size="s"
         icon="openLink"
         variant="ghost"
-        tooltip="Copy"
+        tooltip="Copier"
         tooltipPosition="right"
       />
     </Flex>

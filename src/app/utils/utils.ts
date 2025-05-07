@@ -9,6 +9,11 @@ type Team = {
   linkedIn: string;
 };
 
+type Link = {
+  title: string;
+  url: string;
+};
+
 type Metadata = {
   title: string;
   publishedAt: string;
@@ -16,8 +21,10 @@ type Metadata = {
   image?: string;
   images: string[];
   tag?: string;
+  tags?: string[];
   team: Team[];
   link?: string;
+  links?: Link[];
 };
 
 import { notFound } from 'next/navigation';
@@ -45,8 +52,10 @@ function readMDXFile(filePath: string) {
     image: data.image || "",
     images: data.images || [],
     tag: data.tag || [],
+    tags: data.tags || [],
     team: data.team || [],
     link: data.link || "",
+    links: data.links || [],
   };
 
   return { metadata, content };

@@ -2,20 +2,21 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { ReactNode } from "react";
 
 import { SmartImage, SmartLink, Text } from "@/once-ui/components";
-import { CodeBlock } from "@/once-ui/modules";
+import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { HeadingLink } from "@/components";
+import MermaidDiagram from "@/once-ui/modules/code/MermaidDiagram";
 
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
 
-type TableProps = {
+type CustomTableProps = {
   data: {
     headers: string[];
     rows: string[][];
   };
 };
 
-function Table({ data }: TableProps) {
+function CustomTable({ data }: CustomTableProps) {
   const headers = data.headers.map((header, index) => <th key={index}>{header}</th>);
   const rows = data.rows.map((row, index) => (
     <tr key={index}>
@@ -138,8 +139,10 @@ const components = {
   h6: createHeading(6) as any,
   img: createImage as any,
   a: CustomLink as any,
-  Table,
+  table: CustomTable as any,
   CodeBlock,
+  MermaidDiagram,
+  SmartImage,
 };
 
 type CustomMDXProps = MDXRemoteProps & {

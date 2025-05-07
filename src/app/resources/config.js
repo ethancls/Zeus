@@ -1,18 +1,16 @@
-const baseURL = "demo.magic-portfolio.com";
+const baseURL = "portfolio.ethancls.com";
 
 const routes = {
   "/": true,
   "/about": true,
   "/work": true,
   "/blog": true,
-  "/gallery": true,
+  "/gallery": false,
 };
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
-const protectedRoutes = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
-};
+const protectedRoutes = {};
 
 /* const style = {
   theme: "dark", // dark | light

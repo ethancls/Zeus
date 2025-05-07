@@ -1,0 +1,92 @@
+---
+title: "Acheter et configurer un domaine avec Cloudflare : Guide simple"
+publishedAt: "2025-03-25"
+summary: "Comment acheter un nom de domaine sur Cloudflare et explorer les fonctionnalités essentielles du tableau de bord."
+image: "/images/blog/cloudflare-domain.jpg"
+tag: "Web, Cloudflare, DNS, Domaine"
+---
+
+# Acheter et configurer un domaine avec Cloudflare
+
+Cloudflare est une plateforme qui offre non seulement des services DNS, mais aussi des outils de sécurité et d'optimisation pour votre site web. Dans cet article, je vais vous montrer comment acheter un domaine directement sur Cloudflare et explorer les fonctionnalités essentielles du tableau de bord.
+
+## Pourquoi choisir Cloudflare ?
+
+Cloudflare propose plusieurs avantages pour votre site web :
+
+- **Protection contre les attaques** - Une protection gratuite contre les attaques DDoS
+- **Certificats SSL gratuits** - Pour sécuriser votre site avec HTTPS
+- **CDN mondial** - Pour des temps de chargement plus rapides
+- **Enregistrement de domaines** - Prix compétitifs et renouvellement au prix coûtant
+- **Interface simple** - Facile à utiliser même pour les débutants
+
+## Étape 1 : Acheter un domaine sur Cloudflare
+
+Cloudflare propose désormais l'achat direct de domaines à des prix compétitifs :
+
+1. Créez un compte sur [cloudflare.com](https://www.cloudflare.com) si vous n'en avez pas déjà un
+2. Une fois connecté, cliquez sur "Domaines" dans le menu latéral
+3. Cliquez sur "Enregistrer un domaine"
+4. Tapez le nom de domaine que vous souhaitez (par exemple "monsite")
+5. Choisissez l'extension que vous préférez (.com, .fr, .net, etc.)
+6. Suivez les étapes pour finaliser votre achat
+7. Les prix varient selon l'extension, mais Cloudflare facture uniquement le prix de gros sans majoration
+
+## Étape 2 : Explorer le tableau de bord
+
+Après l'achat de votre domaine, familiarisez-vous avec les sections principales du tableau de bord Cloudflare :
+
+### DNS
+
+Dans l'onglet "DNS", vous pouvez :
+- Ajouter des enregistrements pour pointer votre domaine vers votre site
+- Configurer des sous-domaines
+- Rediriger le trafic vers différents serveurs
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `Type    Nom            Contenu            TTL
+A       exemple.com     192.0.2.1         Auto
+CNAME   www             exemple.com       Auto
+MX      exemple.com     mail.exemple.com  Auto`,
+      language: "plaintext",
+      label: "Exemple d'enregistrements DNS"
+    }
+  ]}
+/>
+
+### SSL/TLS
+
+Dans cette section, vous pouvez :
+- Activer HTTPS pour votre site
+- Choisir le niveau de chiffrement
+- Configurez la redirection automatique de HTTP vers HTTPS
+
+### Règles
+
+L'onglet "Règles" vous permet de :
+- Configurer des redirections
+- Créer des règles de pare-feu
+- Bloquer des visiteurs indésirables
+- Personnaliser le comportement de votre site pour différentes URL
+
+### Cache
+
+Pour optimiser la vitesse de votre site :
+- Configurez le cache du navigateur
+- Activez la mise en cache Cloudflare
+- Purgez le cache si nécessaire lors des mises à jour de votre site
+
+### Pages
+
+Cloudflare Pages vous permet d'héberger directement votre site :
+- Connectez votre repository GitHub
+- Déploiement automatique à chaque commit
+- Hébergement statique gratuit pour vos projets
+
+## Conclusion
+
+Acheter un domaine directement sur Cloudflare simplifie grandement la gestion de votre présence en ligne. Vous bénéficiez immédiatement de toutes les fonctionnalités de protection et d'optimisation sans avoir à transférer votre domaine depuis un autre registrar.
+
+Prenez le temps d'explorer les différentes options du tableau de bord. Vous découvrirez de nombreuses fonctionnalités utiles qui peuvent améliorer la sécurité, la performance et la gestion de votre site web, même avec le plan gratuit. 

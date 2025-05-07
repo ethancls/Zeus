@@ -1,11 +1,44 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
-import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
+import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text, Tag, Icon } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
+
+// Fonction pour obtenir l'icône correspondant au tag
+function getIconForTag(tag: string): string {
+  const tagIconMap: Record<string, string> = {
+    "React": "reactLogo",
+    "Node.js": "nodejsLogo",
+    "NextJS": "nextjsLogo",
+    "TailwindCSS": "tailwindLogo",
+    "JavaScript": "javascriptLogo",
+    "TypeScript": "typescriptLogo",
+    "HTML": "htmlLogo",
+    "CSS": "cssLogo",
+    "Java": "javaLogo",
+    "C": "cLogo",
+    "Python": "pythonLogo",
+    "Haskell": "haskellLogo",
+    "Algorithmie": "algorithm",
+    "Algorithmie (Alpha-Beta)": "algorithm",
+    "Métaheuristique": "algorithm",
+    "Calcul matriciel": "calculator",
+    "Interpolation": "chart",
+    "Modélisation": "model",
+    "Programmation fonctionnelle": "code",
+    "JavaFX": "layout",
+    "XML": "code",
+    "Image I/O": "image",
+    "I/O": "fileImport",
+    "Optimisation": "chartBar",
+    "Gesion de mémoire": "memory",
+  };
+
+  return tagIconMap[tag] || "tag"; // Retourne l'icône correspondante ou "tag" par défaut
+}
 
 interface WorkParams {
   params: {
@@ -74,6 +107,23 @@ export default function Project({ params }: WorkParams) {
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
+    
+  // Extraction des liens GitHub et de démo
+  let githubLink = '';
+  let demoLink = '';
+  
+  if (post.metadata.links) {
+    const githubLinkObj = post.metadata.links.find((link: any) => link.title === "GitHub");
+    const demoLinkObj = post.metadata.links.find((link: any) => link.title === "Démo");
+    
+    if (githubLinkObj) {
+      githubLink = githubLinkObj.url;
+    }
+    
+    if (demoLinkObj) {
+      demoLink = demoLinkObj.url;
+    }
+  }
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
@@ -101,7 +151,7 @@ export default function Project({ params }: WorkParams) {
       />
       <Column maxWidth="xs" gap="16">
         <Button href="/work" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
-          Projects
+          Retour aux projets
         </Button>
         <Heading variant="display-strong-s">{post.metadata.title}</Heading>
       </Column>
@@ -115,12 +165,53 @@ export default function Project({ params }: WorkParams) {
         />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
-        <Flex gap="12" marginBottom="24" vertical="center">
+        <Flex gap="12" marginBottom="16" vertical="center">
           {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
           <Text variant="body-default-s" onBackground="neutral-weak">
             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
           </Text>
         </Flex>
+        
+        {/* Affichage des tags avec leurs logos */}
+        {post.metadata.tags && post.metadata.tags.length > 0 && (
+          <Flex gap="8" wrap marginBottom="24">
+            {post.metadata.tags.map((tag: string, index: number) => (
+              <Tag key={index} size="l">
+                <Flex gap="8" vertical="center">
+                  <Icon name={getIconForTag(tag)} size="s" />
+                  <Text>{tag}</Text>
+                </Flex>
+              </Tag>
+            ))}
+          </Flex>
+        )}
+        
+        {/* Liens vers GitHub et démo */}
+        {(githubLink || demoLink) && (
+          <Flex gap="16" wrap marginBottom="24">
+            {githubLink && (
+              <Button
+                href={githubLink}
+                variant="secondary"
+                size="s"
+                prefixIcon="github"
+              >
+                GitHub
+              </Button>
+            )}
+            {demoLink && (
+              <Button
+                href={demoLink}
+                variant="secondary"
+                size="s"
+                prefixIcon="externalLink"
+              >
+                Démonstration
+              </Button>
+            )}
+          </Flex>
+        )}
+        
         <CustomMDX source={post.content} />
       </Column>
       <ScrollToHash />

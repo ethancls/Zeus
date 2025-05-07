@@ -1,0 +1,198 @@
+---
+title: "Docker et Docker Compose : Guide simple pour débutants"
+publishedAt: "2025-03-15"
+summary: "Apprenez les bases de Docker et Docker Compose avec ce guide simplifié et des exemples concrets."
+image: "/images/blog/docker-compose.jpg"
+tag: "Docker, Docker Compose, Développement"
+---
+
+# Docker et Docker Compose : Guide simple pour débutants
+
+Docker et Docker Compose sont des outils incontournables pour les développeurs modernes. Ils permettent de créer, déployer et gérer des applications dans des conteneurs, ce qui facilite grandement le développement et la mise en production. Dans ce guide, nous allons voir les bases avec des exemples simples et concrets.
+
+## Qu'est-ce que Docker ?
+
+Docker est une plateforme qui permet de développer et d'exécuter des applications dans des environnements isolés appelés conteneurs. Les avantages principaux sont :
+
+- **Cohérence** - Même environnement en développement et en production
+- **Isolation** - Les applications ne se perturbent pas mutuellement
+- **Portabilité** - Fonctionne sur n'importe quel système compatible Docker
+- **Rapidité** - Démarrage et arrêt rapides des applications
+
+## Installation de Docker
+
+### Pour Linux
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh`,
+      language: "bash",
+      label: "Installation Linux"
+    }
+  ]}
+/>
+
+### Pour macOS et Windows
+
+Téléchargez simplement [Docker Desktop](https://www.docker.com/products/docker-desktop).
+
+## Dockerfile : La base de Docker
+
+Un Dockerfile est un fichier qui contient les instructions pour créer une image Docker. Voici un exemple simple :
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `FROM node:16
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]`,
+      language: "dockerfile",
+      label: "Dockerfile simple"
+    }
+  ]}
+/>
+
+Ce Dockerfile :
+1. Utilise Node.js 16 comme image de base
+2. Définit /app comme répertoire de travail
+3. Copie et installe les dépendances
+4. Copie le reste du code
+5. Expose le port 3000
+6. Exécute la commande "npm start" au démarrage
+
+## Docker Compose : Gérer plusieurs conteneurs
+
+Docker Compose permet de définir et d'exécuter plusieurs conteneurs en même temps. Voici un exemple basique :
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `services:
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfile.frontend
+    ports:
+      - "3003:3001"
+    depends_on:
+      - api
+      - json-server
+    restart: unless-stopped
+    volumes:
+      - /app/node_modules
+      - /app/.next
+
+  api:
+    build:
+      context: ./api
+      dockerfile: dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+      - api-venv:/app/.venv
+    command: uvicorn api:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+  json-server:
+    build:
+      context: .
+      dockerfile: dockerfile.jsonserver
+    ports:
+      - "3002:3000"
+    volumes:
+      - json_data:/app
+    restart: unless-stopped
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    
+volumes:
+  api-venv:
+  json_data:`,
+      language: "yaml",
+      label: "docker-compose.yml"
+    }
+  ]}
+/>
+
+Ce fichier docker-compose.yml définit quatre services :
+
+1. **frontend** : Une application web (peut-être React ou Next.js)
+2. **api** : Une API Python utilisant FastAPI ou un framework similaire
+3. **json-server** : Un service pour servir des données JSON
+4. **cloudflared** : Un service Cloudflare pour créer un tunnel sécurisé
+
+## Commandes Docker Compose essentielles
+
+Voici les commandes les plus utiles pour Docker Compose :
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `# Démarrer tous les services
+docker-compose up
+
+# Démarrer en arrière-plan
+docker-compose up -d
+
+# Arrêter tous les services
+docker-compose down
+
+# Voir les logs
+docker-compose logs
+
+# Voir les logs d'un service spécifique
+docker-compose logs api
+
+# Reconstruire les images
+docker-compose build
+
+# Redémarrer un service
+docker-compose restart api`,
+      language: "bash",
+      label: "Commandes essentielles"
+    }
+  ]}
+/>
+
+## Volumes dans Docker Compose
+
+Dans notre exemple, nous utilisons trois types de volumes :
+
+1. **Volumes nommés** : `api-venv:` et `json_data:` - Persistants et gérés par Docker
+2. **Bind mounts** : `./api:/app` - Lie un dossier local à un dossier dans le conteneur
+3. **Volumes anonymes** : `/app/node_modules` - Pour éviter que les dossiers locaux n'écrasent certains dossiers dans le conteneur
+
+## Réseaux dans Docker Compose
+
+Les services définis dans le même fichier docker-compose.yml sont automatiquement connectés au même réseau. C'est pourquoi dans notre exemple, les services peuvent communiquer entre eux en utilisant simplement leur nom comme nom d'hôte (par exemple, le frontend peut accéder à l'API via `http://api:8000`).
+
+## Dépendances entre services
+
+La directive `depends_on` indique que le frontend dépend de l'API et du json-server. Docker Compose démarrera ces services avant de démarrer le frontend. Cependant, notez que cela garantit seulement l'ordre de démarrage, pas que les services sont prêts à recevoir des requêtes.
+
+## Redémarrage automatique
+
+Dans notre exemple, tous les services ont la directive `restart: unless-stopped`, ce qui signifie qu'ils redémarreront automatiquement en cas de plantage ou au redémarrage du système, sauf s'ils ont été arrêtés manuellement.
+
+## Conclusion
+
+Docker et Docker Compose simplifient grandement le développement et le déploiement d'applications. En définissant l'environnement d'une application dans des fichiers de configuration, vous pouvez vous assurer qu'elle fonctionnera de manière identique sur n'importe quelle machine.
+
+Commencez par des configurations simples comme celle présentée dans cet article, puis explorez progressivement les fonctionnalités plus avancées selon vos besoins. 

@@ -19,19 +19,41 @@ export function Projects({ range }: ProjectsProps) {
 
   return (
     <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
-      {displayedProjects.map((post, index) => (
-        <ProjectCard
-          priority={index < 2}
-          key={post.slug}
-          href={`work/${post.slug}`}
-          images={post.metadata.images}
-          title={post.metadata.title}
-          description={post.metadata.summary}
-          content={post.content}
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
-          link={post.metadata.link || ""}
-        />
-      ))}
+      {displayedProjects.map((post, index) => {
+        // Extraction des liens GitHub et de démo à partir des liens dans les métadonnées
+        let githubLink = '';
+        let demoLink = '';
+        
+        if (post.metadata.links) {
+          const githubLinkObj = post.metadata.links.find((link: any) => link.title === "GitHub");
+          const demoLinkObj = post.metadata.links.find((link: any) => link.title === "Démo");
+          
+          if (githubLinkObj) {
+            githubLink = githubLinkObj.url;
+          }
+          
+          if (demoLinkObj) {
+            demoLink = demoLinkObj.url;
+          }
+        }
+        
+        return (
+          <ProjectCard
+            priority={index < 2}
+            key={post.slug}
+            href={`work/${post.slug}`}
+            images={post.metadata.images}
+            title={post.metadata.title}
+            description={post.metadata.summary}
+            content={post.content}
+            avatars={post.metadata.team?.map((member: any) => ({ src: member.avatar })) || []}
+            link={post.metadata.link || ""}
+            tags={post.metadata.tags || []}
+            github={githubLink}
+            demo={demoLink}
+          />
+        );
+      })}
     </Column>
   );
 }

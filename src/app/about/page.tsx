@@ -6,6 +6,7 @@ import {
   Heading,
   Icon,
   IconButton,
+  RevealFx,
   SmartImage,
   Tag,
   Text,
@@ -15,18 +16,37 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
 
+// Fonction pour générer le nom de fichier du CV
+const getCVFilename = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  return `CV - NICOLAS Ethan - ${year}${month}`;
+};
+
 export async function generateMetadata() {
   const title = about.title;
-  const description = about.description;
+  const description = `À propos de ${person.name}, ${person.role} - Découvrez mon parcours, mes compétences et mes expériences professionnelles.`;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
     description,
+    keywords: [
+      "Ethan Nicolas",
+      "Développeur",
+      "Ingénieur informatique",
+      "CV Ethan Nicolas",
+      "Profil informatique",
+      "Compétences développement",
+      "Sup Galilée",
+      "Alternance informatique",
+      "Parcours professionnel"
+    ],
     openGraph: {
       title,
       description,
-      type: "website",
+      type: "profile",
       url: `https://${baseURL}/about`,
       images: [
         {
@@ -67,6 +87,10 @@ export default function About() {
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
+
+  // Nom du fichier CV pour le téléchargement
+  const cvFilename = getCVFilename();
+
   return (
     <Column maxWidth="m">
       <script
@@ -154,7 +178,7 @@ export default function About() {
                 vertical="center"
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Schedule a call</Flex>
+                <Flex paddingX="8">Prendre rendez-vous</Flex>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
@@ -178,29 +202,49 @@ export default function About() {
                 {social.map(
                   (item) =>
                     item.link && (
-                        <>
-                            <Button
-                                className="s-flex-hide"
-                                key={item.name}
-                                href={item.link}
-                                prefixIcon={item.icon}
-                                label={item.name}
-                                size="s"
-                                variant="secondary"
-                            />
-                            <IconButton
-                                className="s-flex-show"
-                                size="l"
-                                key={`${item.name}-icon`}
-                                href={item.link}
-                                icon={item.icon}
-                                variant="secondary"
-                            />
-                        </>
+                      <>
+                        <Button
+                          className="s-flex-hide"
+                          key={item.name}
+                          href={item.link}
+                          prefixIcon={item.icon}
+                          label={item.name}
+                          size="s"
+                          variant="secondary"
+                        />
+                        <IconButton
+                          className="s-flex-show"
+                          size="l"
+                          key={`${item.name}-icon`}
+                          href={item.link}
+                          icon={item.icon}
+                          variant="secondary"
+                        />
+                      </>
                     ),
                 )}
               </Flex>
             )}
+
+            <RevealFx translateY="12" delay={0.4} horizontal="start" marginTop="16">
+              <a
+                href="/files/cv.pdf"
+                download={cvFilename}
+                style={{ textDecoration: 'none' }}
+              >
+                <RevealFx translateY="12" horizontal="start">
+                  <Button
+                    id="about"
+                    data-border="rounded"
+                    variant="secondary"
+                    size="m"
+                    arrowIcon
+                  >
+                    Télécharger mon CV
+                  </Button>
+                </RevealFx>
+              </a>
+            </RevealFx>
           </Column>
 
           {about.intro.display && (

@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ethancls.com
+
+# Sitemaps
+Sitemap: https://ethancls.com/sitemap.xml
+Sitemap: https://ethancls.com/server-sitemap.xml
