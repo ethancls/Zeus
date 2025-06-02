@@ -1,0 +1,79 @@
+---
+title: "ARR - Serveur Multimédia Automatisé"
+publishedAt: "2025-04-21"
+summary: "Configuration complète d'un serveur multimédia avec Plex, Sonarr, Radarr, Overseerr, Prowlarr, YGG et NordVPN via Docker."
+images:
+  - "/images/projects/arr.png"
+tags:
+  - "Docker"
+  - "Plex"
+  - "Sonarr"
+  - "Radarr"
+  - "DevOps"
+  - "Self-hosting"
+---
+
+# ARR - Serveur Multimédia Automatisé
+
+## Aperçu du projet
+
+J'ai mis en place une infrastructure complète de serveur multimédia automatisé utilisant la stack ARR (Sonarr, Radarr) avec Plex comme serveur multimédia principal. Cette solution permet la gestion automatisée du contenu multimédia avec une interface web moderne.
+
+## Architecture technique
+
+### Stack technologique
+- **Plex Media Server** : Serveur multimédia principal pour le streaming
+- **Sonarr** : Gestionnaire automatisé pour les séries TV
+- **Radarr** : Gestionnaire automatisé pour les films
+- **Overseerr** : Interface de demande de contenu pour les utilisateurs
+- **Prowlarr** : Gestionnaire d'indexeurs unifié
+- **YGG** : Intégration du tracker français
+- **NordVPN** : Tunnel VPN sécurisé pour le trafic (proxy SOCKS 5)
+- **Docker & Docker Compose** : Conteneurisation et orchestration
+- **Rudarr** : Gestionnaire de séries et films pour Radarr/Sonarr IOS
+
+## Fonctionnalités principales
+
+### Gestion automatisée
+- Recherche automatique de nouveau contenu
+- Téléchargement et organisation automatiques
+- Mise à jour des métadonnées et artwork
+- Notifications en temps réel
+
+### Interface utilisateur
+- Dashboard centralisé via Overseerr pour les demandes
+- Accès web sécurisé à Plex
+
+### Sécurité et confidentialité
+- Tunnel VPN permanent avec NordVPN (proxy SOCKS 5)
+- Chiffrement du trafic
+- Isolation des conteneurs Docker
+
+## Configuration Docker
+
+L'ensemble de la stack est orchestrée via Docker Compose avec :
+- Réseaux isolés pour chaque service
+- Volumes persistants pour les données
+- Variables d'environnement sécurisées
+- Monitoring et logs centralisés
+
+## Défis techniques relevés
+
+### Gestion des permissions
+- Configuration des utilisateurs et groupes
+- Gestion des dossiers partagés entre conteneurs
+- Sécurisation des accès aux API
+
+### Performance et optimisation
+- Optimisation des ressources CPU/RAM
+- Configuration du cache et transcoding Plex
+
+## Résultats
+
+Cette infrastructure me permet de gérer automatiquement ma médiathèque avec :
+- Plus de 200 films et 50 séries organisés
+- Interface web intuitive accessible partout via 'app.plex.tv'
+- Téléchargements automatiques sécurisés
+- Streaming haute qualité multi-appareils
+
+Le projet démontre mes compétences en DevOps, self-hosting et configuration d'infrastructures complexes avec Docker.
