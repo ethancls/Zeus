@@ -4,6 +4,7 @@ import "@/once-ui/tokens/index.scss";
 import classNames from "classnames";
 
 import { Footer, Header, RouteGuard } from "@/components";
+import { StyleCustomizer } from "@/components/StyleCustomizer";
 import { baseURL, effects, style } from "@/app/resources";
 
 import { Inter } from "next/font/google";
@@ -155,6 +156,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             </Flex>
           </Flex>
           <Footer />
+          <StyleCustomizer />
         </Column>
       </ToastProvider>
     </Flex>

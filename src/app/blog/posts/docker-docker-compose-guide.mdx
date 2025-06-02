@@ -8,35 +8,32 @@ tag: "Docker, Docker Compose, Développement"
 
 # Docker et Docker Compose : Guide simple pour débutants
 
-Docker et Docker Compose sont des outils incontournables pour les développeurs modernes. Ils permettent de créer, déployer et gérer des applications dans des conteneurs, ce qui facilite grandement le développement et la mise en production. Dans ce guide, nous allons voir les bases avec des exemples simples et concrets.
+Docker et Docker Compose sont des outils incontournables pour les développeurs modernes. Ils permettent de créer, déployer et gérer des applications dans des conteneurs, ce qui facilite grandement le développement et la mise en production.
 
 ## Qu'est-ce que Docker ?
 
 Docker est une plateforme qui permet de développer et d'exécuter des applications dans des environnements isolés appelés conteneurs. Les avantages principaux sont :
 
-- **Cohérence** - Même environnement en développement et en production
-- **Isolation** - Les applications ne se perturbent pas mutuellement
+- **Cohérence** - Même environnement en développement et en production, noeuds différents
+- **Isolation** - Les applications ne se perturbent pas mutuellement mais repose sur le même moteur Docker Engine
 - **Portabilité** - Fonctionne sur n'importe quel système compatible Docker
-- **Rapidité** - Démarrage et arrêt rapides des applications
+- **Rapidité** - Démarrage et arrêt rapides des applications, gestion automatisé (CI/CD Jenkins, GitHub Actions, GitLab CI, etc.), interface web avec Portainer, etc.
 
 ## Installation de Docker
 
-### Pour Linux
+Téléchargez simplement [Docker Desktop](https://www.docker.com/products/docker-desktop).
+
+L'installation est simple et rapide, que vous soyez sur Windows, macOS ou Linux. Une fois installé, vous pouvez vérifier que Docker fonctionne correctement en exécutant la commande suivante dans votre terminal :
 
 <CodeBlock
   codeInstances={[
     {
-      code: `curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh`,
-      language: "bash",
-      label: "Installation Linux"
+      code: `docker --version`,
     }
   ]}
 />
 
-### Pour macOS et Windows
-
-Téléchargez simplement [Docker Desktop](https://www.docker.com/products/docker-desktop).
+Vous devriez voir la version de Docker installée sur votre machine.
 
 ## Dockerfile : La base de Docker
 
@@ -58,7 +55,7 @@ EXPOSE 3000
 
 CMD ["npm", "start"]`,
       language: "dockerfile",
-      label: "Dockerfile simple"
+      label: "Dockerfile exemple"
     }
   ]}
 />
@@ -133,8 +130,8 @@ volumes:
 
 Ce fichier docker-compose.yml définit quatre services :
 
-1. **frontend** : Une application web (peut-être React ou Next.js)
-2. **api** : Une API Python utilisant FastAPI ou un framework similaire
+1. **frontend** : Une application web
+2. **api** : Une API Python
 3. **json-server** : Un service pour servir des données JSON
 4. **cloudflared** : Un service Cloudflare pour créer un tunnel sécurisé
 
@@ -195,4 +192,4 @@ Dans notre exemple, tous les services ont la directive `restart: unless-stopped`
 
 Docker et Docker Compose simplifient grandement le développement et le déploiement d'applications. En définissant l'environnement d'une application dans des fichiers de configuration, vous pouvez vous assurer qu'elle fonctionnera de manière identique sur n'importe quelle machine.
 
-Commencez par des configurations simples comme celle présentée dans cet article, puis explorez progressivement les fonctionnalités plus avancées selon vos besoins. 
+On pourrait plus tard observer comment déployer ces conteneurs sur un serveur distant, par exemple avec Docker Swarm ou Kubernetes, mais cela sort du cadre de ce guide.

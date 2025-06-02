@@ -26,10 +26,10 @@ const protectedRoutes = {};
 
 const style = {
   theme: "dark",
-  brand: "cyan",
-  accent: "cyan",
+  brand: "indigo",
+  accent: "yellow",
   neutral: "slate",
-  border: "rounded",
+  border: "playful",
   solid: "color",
   solidStyle: "flat",
   surface: "translucent",

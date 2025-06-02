@@ -135,7 +135,7 @@ instance/
 
 # scrapy
 .scrapy
-
+.env
 # sphinx
 docs/_build/
 

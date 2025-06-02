@@ -23,6 +23,9 @@ import {
   HiArrowRight,
   HiOutlineEye,
   HiOutlineEyeSlash,
+  HiSun,
+  HiMoon,
+  HiCog,
 } from "react-icons/hi2";
 
 import {
@@ -37,6 +40,9 @@ import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { SiOrcid } from "react-icons/si";
 
 export const iconLibrary: Record<string, IconType> = {
+  settings : HiCog,
+  sun: HiSun,
+  moon: HiMoon,
   chevronUp: HiChevronUp,
   chevronDown: HiChevronDown,
   chevronRight: HiChevronRight,

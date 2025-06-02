@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 import { routes, display } from "@/app/resources";
 import { person, home, about, blog, work, gallery } from "@/app/resources/content";
@@ -65,7 +66,7 @@ export const Header = () => {
           <Flex
             background="surface"
             border="neutral-medium"
-            radius="m-4"
+            radius="s"
             shadow="l"
             padding="4"
             horizontal="center"
@@ -143,6 +144,8 @@ export const Header = () => {
                   />
                 </>
               )}
+              <Line vert maxHeight="24" />
+              <ThemeToggle className={styles.themeToggle} />
             </Flex>
           </Flex>
         </Flex>

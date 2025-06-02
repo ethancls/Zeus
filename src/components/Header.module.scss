@@ -11,6 +11,20 @@
     mask-size: 100% 100%;
 }
 
+// Styles responsive pour le toggle de thème
+.themeToggle {
+    min-width: 32px;
+    height: 32px;
+    
+    &:hover {
+        background: var(--neutral-background-medium);
+    }
+    
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
 @media (--s) {
     .position {
         top: auto;
@@ -21,5 +35,15 @@
     .mask {
         transform: rotate(180deg);
         bottom: 0;
+    }
+    
+    .navigation {
+        border-radius: var(--static-radius-xs) !important;
+        padding: var(--static-space-2) !important;
+    }
+    
+    .themeToggle {
+        min-width: 28px;
+        height: 28px;
     }
 }

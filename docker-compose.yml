@@ -6,10 +6,6 @@ services:
     ports:
       - "2235:3000"
     restart: unless-stopped
-    labels:
-      - flame.type=application
-      - flame.name=Portfolio
-      - flame.url=https://portfolio.ethancls.com
 
   cloudflared:
     image: cloudflare/cloudflared:latest

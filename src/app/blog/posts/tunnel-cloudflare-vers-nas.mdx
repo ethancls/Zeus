@@ -12,7 +12,7 @@ Les tunnels Cloudflare permettent d'accéder à vos services hébergés à domic
 
 ## Avantages des tunnels Cloudflare
 
-- **Sécurité renforcée** - Aucun port à ouvrir sur votre routeur
+- **Sécurité renforcée** - Aucun port à ouvrir sur votre routeur + redirection du trafic via Cloudflare
 - **Simplicité** - Configuration facile via l'interface Cloudflare
 - **Certificats SSL gratuits** - Connexions HTTPS automatiques
 - **Protection DDoS** - Bouclier contre les attaques
@@ -66,7 +66,7 @@ Une fois votre tunnel créé et votre container démarré :
    - Sous-domaine : choisissez un nom (ex: app)
    - Domaine : sélectionnez votre domaine
    - Type de service : HTTP ou HTTPS
-   - URL : `http://mon-app:8080` (nom du service et port dans votre docker-compose)
+   - URL : `http://mon-app:8080` (nom du service et port dans votre docker-compose INTERNES, pas le port exposé)
 4. Cliquez sur "Sauvegarder"
 
 Votre tunnel redirigera maintenant le trafic de `app.votredomaine.com` vers votre application sur le port 8080.
@@ -111,4 +111,8 @@ Après avoir démarré vos services avec `docker-compose up -d`, attendez quelqu
 
 ## Conclusion
 
-Les tunnels Cloudflare offrent une solution élégante pour accéder à vos services à distance sans compromettre la sécurité. Combinés avec Docker Compose, ils permettent une configuration facile et flexible pour exposer plusieurs applications sur Internet. 
+Les tunnels Cloudflare offrent une solution élégante pour accéder à vos services à distance sans compromettre la sécurité. Combinés avec Docker Compose, ils permettent une configuration facile et flexible pour exposer plusieurs applications sur Internet.
+
+## Sécurité
+
+Si vous souhaitez sécuriser davantage votre tunnel, vous pouvez configurer des règles d'accès basées sur l'authentification Cloudflare (Cloudflare ACCESS) ou des adresses IP autorisées (Whitelisting). Mais cela dépend de vos besoins spécifiques. Je recommande plutôt de créer soit-même un reverse proxy avec Traefik accompagné d'un middleware comme Authelia.
