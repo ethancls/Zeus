@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 
 interface StyleConfig {
-  theme: 'dark' | 'light';
   brand: string;
   accent: string;
   neutral: string;
@@ -15,7 +14,6 @@ interface StyleConfig {
 }
 
 const defaultStyle: StyleConfig = {
-  theme: "dark",
   brand: "indigo",
   accent: "yellow",
   neutral: "slate",
@@ -63,10 +61,9 @@ export const useStyleConfig = () => {
     // Sauvegarder dans localStorage
     localStorage.setItem('zeus-style-config', JSON.stringify(styleConfig));
 
-    // Appliquer les data-attributes au document
+    // Appliquer les data-attributes au document (sans toucher au theme)
     const root = document.documentElement;
     
-    root.setAttribute('data-theme', styleConfig.theme);
     root.setAttribute('data-brand', styleConfig.brand);
     root.setAttribute('data-accent', styleConfig.accent);
     root.setAttribute('data-neutral', styleConfig.neutral);

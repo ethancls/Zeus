@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageSelector } from "@/components/LanguageSelector";
+import { useLanguage } from "@/hooks/useLanguage";
 
 import { routes, display } from "@/app/resources";
 import { person, home, about, blog, work, gallery } from "@/app/resources/content";
@@ -45,6 +47,7 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const { locale, t } = useLanguage();
 
   return (
     <>
@@ -82,7 +85,7 @@ export const Header = () => {
                     className="s-flex-hide"
                     prefixIcon="person"
                     href="/about"
-                    label={about.label}
+                    label={t('nav.about')}
                     selected={pathname === "/about"}
                   />
                   <ToggleButton
@@ -99,7 +102,7 @@ export const Header = () => {
                     className="s-flex-hide"
                     prefixIcon="grid"
                     href="/work"
-                    label={work.label}
+                    label={t('nav.work')}
                     selected={pathname.startsWith("/work")}
                   />
                   <ToggleButton
@@ -116,7 +119,7 @@ export const Header = () => {
                     className="s-flex-hide"
                     prefixIcon="book"
                     href="/blog"
-                    label={blog.label}
+                    label={t('nav.blog')}
                     selected={pathname.startsWith("/blog")}
                   />
                   <ToggleButton
@@ -133,7 +136,7 @@ export const Header = () => {
                     className="s-flex-hide"
                     prefixIcon="gallery"
                     href="/gallery"
-                    label={gallery.label}
+                    label={t('nav.gallery')}
                     selected={pathname.startsWith("/gallery")}
                   />
                   <ToggleButton
@@ -145,6 +148,7 @@ export const Header = () => {
                 </>
               )}
               <Line vert maxHeight="24" />
+              <LanguageSelector />
               <ThemeToggle className={styles.themeToggle} />
             </Flex>
           </Flex>

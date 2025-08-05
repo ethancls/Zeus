@@ -416,9 +416,6 @@ export const StyleCustomizer: React.FC<StyleCustomizerProps> = ({ className }) =
             border="neutral-weak"
             style={{ borderTop: '1px solid' }}
           >
-            <Text variant="body-default-xs" color="neutral-medium">
-              Thème: {styleConfig.theme}
-            </Text>
             <Badge title={`${styleConfig.brand} × ${styleConfig.accent}`} />
           </Flex>
         </Flex>

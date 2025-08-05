@@ -5,6 +5,8 @@ import classNames from "classnames";
 
 import { Footer, Header, RouteGuard } from "@/components";
 import { StyleCustomizer } from "@/components/StyleCustomizer";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { LanguageProvider } from "@/hooks/useLanguage";
 import { baseURL, effects, style } from "@/app/resources";
 
 import { Inter } from "next/font/google";
@@ -19,11 +21,11 @@ export async function generateMetadata() {
     title: home.title,
     description: home.description,
     openGraph: {
-      title: `${person.firstName}'s Portfolio`,
-      description: "Portfolio website showcasing my work.",
+      title: `Portfolio de Nicolas Ethan`,
+      description: "Ce portfolio permet de mettre en valeur mes projets et compétences.",
       url: baseURL,
-      siteName: `${person.firstName}'s Portfolio`,
-      locale: "en_US",
+      siteName: `Portfolio de Nicolas Ethan`,
+      locale: "fr_FR",
       type: "website",
     },
     robots: {
@@ -73,14 +75,13 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <Flex
       as="html"
-      lang="en"
+      lang="fr"
       background="page"
       data-neutral={style.neutral}
       data-brand={style.brand}
       data-accent={style.accent}
       data-solid={style.solid}
       data-solid-style={style.solidStyle}
-      data-theme={style.theme}
       data-border={style.border}
       data-surface={style.surface}
       data-transition={style.transition}
@@ -92,7 +93,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <ToastProvider>
-        <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
+        <LanguageProvider>
+          <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
           <Background
             mask={{
               cursor: effects.mask.cursor,
@@ -157,7 +159,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           </Flex>
           <Footer />
           <StyleCustomizer />
+          <ThemeProvider />
         </Column>
+        </LanguageProvider>
       </ToastProvider>
     </Flex>
   );

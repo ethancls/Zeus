@@ -1,0 +1,48 @@
+.languageSelector {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1000;
+  min-width: 140px;
+}
+
+// Responsive adjustments for mobile
+@media (--s) {
+  .dropdown {
+    bottom: calc(100% + 8px);
+    top: auto;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.languageOption {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+  margin: 2px 0;
+}
+
+.languageOption:hover {
+  background-color: var(--neutral-alpha-weak);
+}
+
+.languageOption.selected {
+  background-color: var(--brand-alpha-weak);
+}
+
+.flag {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.checkmark {
+  color: var(--brand-on-background-strong);
+  font-weight: bold;
+  font-size: 14px;
+}

@@ -26,9 +26,9 @@ const protectedRoutes = {};
 
 const style = {
   theme: "dark",
-  brand: "indigo",
-  accent: "yellow",
-  neutral: "slate",
+  brand: "red",
+  accent: "aqua",
+  neutral: "sand",
   border: "playful",
   solid: "color",
   solidStyle: "flat",

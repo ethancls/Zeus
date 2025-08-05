@@ -5,6 +5,8 @@ import { Projects } from "@/components/work/Projects";
 
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person, newsletter } from "@/app/resources/content";
+import { LocalizedHeadline } from "@/components/LocalizedHeadline";
+import { LocalizedAboutTitle } from "@/components/LocalizedAboutTitle";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 
@@ -64,16 +66,7 @@ export default function Home() {
       />
       <Column fillWidth paddingY="l" gap="m">
         <Column maxWidth="s">
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="m">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="m">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </RevealFx>
+          <LocalizedHeadline />
           <RevealFx translateY="12" delay={0.4} horizontal="start">
             <Button
               id="about"
@@ -91,7 +84,7 @@ export default function Home() {
                     size="m"
                   />
                 )}
-                {about.title}
+                <LocalizedAboutTitle />
               </Flex>
             </Button>
           </RevealFx>
