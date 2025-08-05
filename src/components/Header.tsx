@@ -149,7 +149,7 @@ export const Header = () => {
               )}
               <Line vert maxHeight="24" />
               <LanguageSelector />
-              {/* <ThemeToggle className={styles.themeToggle} /> */}
+              <ThemeToggle className={styles.themeToggle} />
             </Flex>
           </Flex>
         </Flex>
