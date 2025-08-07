@@ -7,16 +7,16 @@ import { Flex } from '@/once-ui/components';
 
 // Styles et effets
 const style = {
-  neutral: 'zinc',
-  brand: 'cyan',
-  accent: 'orange',
-  solid: 'color',
-  solidStyle: 'default',
-  theme: 'light',
-  border: 'rounded',
-  surface: 'default',
-  transition: 'default',
-};
+  theme: "dark",
+  brand: "indigo",
+  accent: "cyan",
+  neutral: "slate",
+  border: "playful",
+  solid: "color",
+  solidStyle: "flat",
+  surface: "translucent",
+  transition: "all",
+}
 
 const effects = {
   mask: {
