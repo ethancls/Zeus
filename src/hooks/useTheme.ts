@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 type Theme = 'light' | 'dark';
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>('dark'); // Default from config
+  const [theme, setTheme] = useState<Theme>('dark'); // Default to dark
 
   useEffect(() => {
     // Check localStorage for saved theme
@@ -14,11 +14,10 @@ export function useTheme() {
       setTheme(savedTheme);
       updateDataAttribute(savedTheme);
     } else {
-      // Use system preference as fallback
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const systemTheme = prefersDark ? 'dark' : 'light';
-      setTheme(systemTheme);
-      updateDataAttribute(systemTheme);
+      // Default to dark instead of system preference
+      setTheme('dark');
+      updateDataAttribute('dark');
+      localStorage.setItem('theme', 'dark');
     }
   }, []);
 

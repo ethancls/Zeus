@@ -84,6 +84,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       data-border={style.border}
       data-surface={style.surface}
       data-transition={style.transition}
+      data-theme="dark"
       className={classNames(
         primary.variable,
         secondary ? secondary.variable : "",
@@ -91,6 +92,23 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         code.variable,
       )}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const savedTheme = localStorage.getItem('theme');
+                  const theme = savedTheme || 'dark';
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <ToastProvider>
         <LanguageProvider>
           <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
