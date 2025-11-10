@@ -53,7 +53,8 @@ const home = {
   headline: <>Apprenti ingénieur informatique</>,
   subline: (
     <>
-      Je suis Ethan, apprenti ingénieur informatique en M1 à Sup Galilée, passionné par la résolution de problèmes complexes et leur transformation en solutions techniques et design élégantes.
+      Je suis Ethan, apprenti ingénieur informatique en M2 à Sup Galilée, actuellement en alternance chez Abeille Assurances dans le domaine de l’IAM (Identity and Access Management).  
+      Je recherche un stage de 9 semaines à l’étranger afin de renforcer mes compétences techniques, découvrir de nouveaux environnements professionnels et élargir ma vision internationale de l’ingénierie informatique.
     </>
   ),
 };
