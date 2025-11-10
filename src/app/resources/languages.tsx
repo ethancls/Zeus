@@ -7,10 +7,10 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: {
-    fr: "Apprenti ingénieur informatique (M1)",
-    en: "Computer Engineering Student (M1)",
-    es: "Estudiante de Ingeniería Informática (M1)",
-    ja: "コンピュータ工学学生 (M1)"
+    fr: "Apprenti ingénieur informatique (M2)",
+    en: "Computer Engineering Student (M2)",
+    es: "Estudiante de Ingeniería Informática (M2)",
+    ja: "コンピュータ工学学生 (M2)"
   },
   avatar: "/images/avatar.jpg",
   location: "Europe/Paris",
@@ -66,7 +66,8 @@ const content = {
       headline: <>Apprenti ingénieur informatique</>,
       subline: (
         <>
-          Je suis Ethan, apprenti ingénieur informatique en M1 à Sup Galilée, passionné par la résolution de problèmes complexes et leur transformation en solutions techniques et design élégantes.
+          Je suis Ethan, apprenti ingénieur informatique en M2 à Sup Galilée, actuellement en alternance chez Abeille Assurances dans le domaine de l’IAM (Identity and Access Management).
+          Je recherche un stage de 9 semaines à l’étranger afin de renforcer mes compétences techniques, découvrir de nouveaux environnements professionnels et élargir ma vision internationale de l’ingénierie informatique.
         </>
       ),
     },
@@ -95,7 +96,9 @@ const content = {
         title: "Introduction",
         description: (
           <>
-            Je suis Ethan, apprenti ingénieur informatique en M1 à Sup Galilée, passionné par la résolution de problèmes complexes et leur transformation en solutions techniques et designs élégantes.
+            Je suis Ethan, apprenti ingénieur informatique en M2 à Sup Galilée, actuellement en alternance chez Abeille Assurances dans le domaine de l’IAM (Identity and Access Management).
+            <br />
+            Je recherche un stage de 9 semaines à l’étranger afin de renforcer mes compétences techniques, découvrir de nouveaux environnements professionnels et élargir ma vision internationale de l’ingénierie informatique.
           </>
         ),
       },
@@ -207,7 +210,8 @@ const content = {
       headline: <>Computer Engineering Student</>,
       subline: (
         <>
-          I'm Ethan, a computer engineering student in M1 at Sup Galilée, passionate about solving complex problems and transforming them into elegant technical and design solutions.
+          I'm Ethan, a computer engineering student in M2 at Sup Galilée, currently doing a work-study placement at Abeille Assurances in the field of IAM (Identity and Access Management).
+          I am seeking a 9-week internship abroad to strengthen my technical skills, discover new professional environments, and broaden my international perspective on computer engineering.
         </>
       ),
     },
@@ -236,7 +240,9 @@ const content = {
         title: "Introduction",
         description: (
           <>
-            I'm Ethan, a computer engineering student in M1 at Sup Galilée, passionate about solving complex problems and transforming them into elegant technical and design solutions.
+            I'm Ethan, a computer engineering apprentice in M2 at Sup Galilée, currently in a work-study program at Abeille Assurances in the field of IAM (Identity and Access Management).
+            <br />
+            I am seeking a 9-week internship abroad to strengthen my technical skills, discover new professional environments, and broaden my international perspective on computer engineering.
           </>
         ),
       },
@@ -348,7 +354,8 @@ const content = {
       headline: <>Estudiante de Ingeniería Informática</>,
       subline: (
         <>
-          Soy Ethan, estudiante de ingeniería informática en M1 en Sup Galilée, apasionado por resolver problemas complejos y transformarlos en soluciones técnicas y de diseño elegantes.
+          Soy Ethan, aprendiz de ingeniería informática en M2 en Sup Galilée, actualmente en alternancia en Abeille Assurances en el ámbito de IAM (Identity and Access Management).
+          Busco una pasantía de 9 semanas en el extranjero para reforzar mis competencias técnicas, descubrir nuevos entornos profesionales y ampliar mi perspectiva internacional sobre la ingeniería informática.
         </>
       ),
     },
@@ -377,7 +384,9 @@ const content = {
         title: "Introducción",
         description: (
           <>
-            Soy Ethan, estudiante de ingeniería informática en M1 en Sup Galilée, apasionado por resolver problemas complejos y transformarlos en soluciones técnicas y de diseño elegantes.
+            Soy Ethan, aprendiz de ingeniería informática en M2 en Sup Galilée, actualmente en formación en alternancia en Abeille Assurances en el ámbito de IAM (Identity and Access Management).
+            <br />
+            Busco una pasantía de 9 semanas en el extranjero para reforzar mis habilidades técnicas, descubrir nuevos entornos profesionales y ampliar mi perspectiva internacional de la ingeniería informática.
           </>
         ),
       },
@@ -489,7 +498,8 @@ const content = {
       headline: <>コンピュータ工学学生</>,
       subline: (
         <>
-          私はEthanです。Sup Galiléeのコンピュータ工学M1学生で、複雑な問題を解決し、それらをエレガントな技術的およびデザインソリューションに変換することに情熱を注いでいます。
+          私はEthanです。Sup GaliléeでM2（修士課程2年目）のコンピュータ工学の見習いで、現在Abeille Assurances社でIAM（Identity and Access Management：アイデンティティ/アクセス管理）分野の交代制研修を行っています。
+          海外で9週間のインターンシップを探しており、技術力を高め、新しい職場環境を体験し、コンピュータ工学に関する国際的な視野を広げたいと考えています。
         </>
       ),
     },
@@ -518,7 +528,9 @@ const content = {
         title: "紹介",
         description: (
           <>
-            私はEthanです。Sup Galiléeのコンピュータ工学M1学生で、複雑な問題を解決し、それらをエレガントな技術的およびデザインソリューションに変換することに情熱を注いでいます。
+            私はEthanです。Sup GaliléeでM2（修士課程2年目）のコンピュータ工学の見習いで、現在Abeille Assurances社でIAM（Identity and Access Management：アイデンティティ/アクセス管理）分野の交代制研修を行っています。
+            <br />
+            技術的なスキルを強化し、新しい職業環境を経験し、コンピュータ工学に関する国際的な視野を広げるため、海外で9週間のインターンシップを探しています。
           </>
         ),
       },
